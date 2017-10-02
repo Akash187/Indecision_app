@@ -1,0 +1,12 @@
+{
+  "name": "indecision_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Akash187/Indecision_app.git",
+  "author": "Akash Kumar Seth <kumarakashseth007@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "v1.5.2",
+    "babel-preset-react": "6.24.1"
+  }
+}
