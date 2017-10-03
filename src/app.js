@@ -12,16 +12,18 @@ var template = (
     </div>
 );
 
-//passing value from variable instead of hard coding it.
-var userName = 'Mike Hussey';
-var userAge = 26;
-var userLocation = 'Las Vegas, Nevada';
+//passing value from object
+var user = {
+    name : 'Mike Hussey',
+    age : 29,
+    location : 'Auckland, Australia'
+};
 
 var templateTwo = (
     <div>
-        <h1>{userName}</h1>
-        <p>{userAge}</p>
-        <p>{userLocation}</p>
+        <h1>{user.name}</h1>
+        <p>{user.age}</p>
+        <p>{user.location}</p>
     </div>
 );
 
