@@ -32,23 +32,28 @@ var template = React.createElement(
     )
 );
 
+//passing value from variable instead of hard coding it.
+var userName = 'Mike Hussey';
+var userAge = 26;
+var userLocation = 'Las Vegas, Nevada';
+
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Akash Kumar Seth'
+        userName
     ),
     React.createElement(
         'p',
         null,
-        'Age : 20'
+        userAge
     ),
     React.createElement(
         'p',
         null,
-        'Location : Jaunpur, Uttar Pradesh'
+        userLocation
     )
 );
 
