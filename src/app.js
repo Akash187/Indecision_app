@@ -21,21 +21,19 @@ var template = (
 var user = {
     name : 'Mike Hussey',
     age : 29,
+    //location : 'New York'
 };
-//using if conditional in JSX
+//using if conditional and passing JSX expression as return statement.
 function getLocation(location) {
-    if(location){
-        return location;
-    }
-    else {
-        return 'Unknown';
+    if(location) {
+        return <p>Location : {location}</p>;
     }
 }
 var templateTwo = (
     <div>
         <h1>{user.name}</h1>
         <p>Age : {user.age}</p>
-        <p>Location : {getLocation(user.location)}</p>
+        {getLocation(user.location)}
     </div>
 );
 
