@@ -4,10 +4,13 @@ console.log('App.js is running!');
 
 var app = {
     title: 'Indecision App Development',
-    subtitle: 'Info about the app'
+    subtitle: 'Info about the app',
+    options: []
 };
 
 // JSX - JavaScript XML
+
+//using and operator and ternary opertator simultaneously.
 var template = React.createElement(
     'div',
     null,
@@ -16,10 +19,15 @@ var template = React.createElement(
         null,
         app.title
     ),
-    React.createElement(
+    app.subtitle && React.createElement(
         'p',
         null,
         app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? "Here are your options" : "No options"
     ),
     React.createElement(
         'ul',
@@ -43,7 +51,7 @@ var user = {
     age: 29
     //location : 'New York'
 };
-//using ternary operator and passing JSX expression as return statement.
+//using and operator and passing JSX expression as return statement.
 function getLocation(location) {
     if (location) {
         return React.createElement(
@@ -62,7 +70,7 @@ var templateTwo = React.createElement(
         null,
         user.name ? user.name : 'Anonymous'
     ),
-    React.createElement(
+    user.age >= 48 && React.createElement(
         'p',
         null,
         'Age : ',
@@ -72,4 +80,4 @@ var templateTwo = React.createElement(
 );
 
 var appRoot = document.getElementById('app');
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
