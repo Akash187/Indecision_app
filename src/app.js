@@ -19,11 +19,11 @@ var template = (
 
 //passing value from object
 var user = {
-    name : 'Mike Hussey',
+    //name : 'Mike Hussey',
     age : 29,
     //location : 'New York'
 };
-//using if conditional and passing JSX expression as return statement.
+//using ternary operator and passing JSX expression as return statement.
 function getLocation(location) {
     if(location) {
         return <p>Location : {location}</p>;
@@ -31,7 +31,7 @@ function getLocation(location) {
 }
 var templateTwo = (
     <div>
-        <h1>{user.name}</h1>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
         <p>Age : {user.age}</p>
         {getLocation(user.location)}
     </div>

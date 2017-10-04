@@ -39,11 +39,11 @@ var template = React.createElement(
 
 //passing value from object
 var user = {
-    name: 'Mike Hussey',
+    //name : 'Mike Hussey',
     age: 29
     //location : 'New York'
 };
-//using if conditional and passing JSX expression as return statement.
+//using ternary operator and passing JSX expression as return statement.
 function getLocation(location) {
     if (location) {
         return React.createElement(
@@ -60,7 +60,7 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        user.name
+        user.name ? user.name : 'Anonymous'
     ),
     React.createElement(
         'p',
