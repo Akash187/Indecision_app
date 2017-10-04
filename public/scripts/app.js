@@ -2,6 +2,11 @@
 
 console.log('App.js is running!');
 
+var app = {
+    title: 'Indecision App Development',
+    subtitle: 'Info about the app'
+};
+
 // JSX - JavaScript XML
 var template = React.createElement(
     'div',
@@ -9,12 +14,12 @@ var template = React.createElement(
     React.createElement(
         'h1',
         null,
-        'Indecision App'
+        app.title
     ),
     React.createElement(
         'p',
         null,
-        'This is some info'
+        app.subtitle
     ),
     React.createElement(
         'ul',
@@ -35,10 +40,16 @@ var template = React.createElement(
 //passing value from object
 var user = {
     name: 'Mike Hussey',
-    age: 29,
-    location: 'Auckland, Australia'
+    age: 29
 };
-
+//using if conditional in JSX
+function getLocation(location) {
+    if (location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
 var templateTwo = React.createElement(
     'div',
     null,
@@ -50,12 +61,14 @@ var templateTwo = React.createElement(
     React.createElement(
         'p',
         null,
+        'Age : ',
         user.age
     ),
     React.createElement(
         'p',
         null,
-        user.location
+        'Location : ',
+        getLocation(user.location)
     )
 );
 

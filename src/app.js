@@ -1,10 +1,15 @@
 console.log('App.js is running!');
 
+var app = {
+    title : 'Indecision App Development',
+    subtitle : 'Info about the app'
+};
+
 // JSX - JavaScript XML
 var template = (
     <div>
-        <h1>Indecision App</h1>
-        <p>This is some info</p>
+        <h1>{app.title}</h1>
+        <p>{app.subtitle}</p>
         <ul>
             <li>Akash</li>
             <li>Nishant</li>
@@ -16,14 +21,21 @@ var template = (
 var user = {
     name : 'Mike Hussey',
     age : 29,
-    location : 'Auckland, Australia'
 };
-
+//using if conditional in JSX
+function getLocation(location) {
+    if(location){
+        return location;
+    }
+    else {
+        return 'Unknown';
+    }
+}
 var templateTwo = (
     <div>
         <h1>{user.name}</h1>
-        <p>{user.age}</p>
-        <p>{user.location}</p>
+        <p>Age : {user.age}</p>
+        <p>Location : {getLocation(user.location)}</p>
     </div>
 );
 
