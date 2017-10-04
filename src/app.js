@@ -3,7 +3,7 @@ console.log('App.js is running!');
 var app = {
     title : 'Indecision App Development',
     subtitle : 'Info about the app',
-    options : []
+    options : ['one','two']
 };
 
 // JSX - JavaScript XML
