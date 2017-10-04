@@ -1,6 +1,6 @@
 console.log('App.js is running!');
 
-var app = {
+const app = {
     title : 'Indecision App Development',
     subtitle : 'Info about the app',
     options : ['one','two']
@@ -9,7 +9,7 @@ var app = {
 // JSX - JavaScript XML
 
 //using and operator and ternary opertator simultaneously.
-var template = (
+const template = (
     <div>
         <h1>{app.title}</h1>
         {app.subtitle && <p>{app.subtitle}</p>}
@@ -22,8 +22,8 @@ var template = (
 );
 
 //passing value from object
-var user = {
-    //name : 'Mike Hussey',
+const user = {
+    name : 'Mike Hussey',
     age : 29,
     //location : 'New York'
 };
@@ -33,13 +33,13 @@ function getLocation(location) {
         return <p>Location : {location}</p>;
     }
 }
-var templateTwo = (
+const templateTwo = (
     <div>
         <h1>{user.name ? user.name : 'Anonymous'}</h1>
-        {user.age >= 48 && <p>Age : {user.age}</p>}
+        {user.age >= 28 && <p>Age : {user.age}</p>}
         {getLocation(user.location)}
     </div>
 );
 
-var appRoot = document.getElementById('app');
-ReactDOM.render(template,appRoot);
+const appRoot = document.getElementById('app');
+ReactDOM.render(templateTwo,appRoot);
