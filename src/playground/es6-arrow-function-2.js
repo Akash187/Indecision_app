@@ -1,9 +1,7 @@
-'use strict';
-
 //argument object - no longer bound with arrow function
 
 //es5 version of function
-var add = function add(a, b) {
+const add = function (a,b) {
     console.log(arguments);
     return a + b;
 };
@@ -20,12 +18,12 @@ console.log(add(55, 12));
 //this keyword - no longer bound
 
 //es5 version
-var userES5 = {
+const userES5 = {
     name: 'Andrew',
     cities: ['Jaipur', 'Kolkata', 'Mumbai'],
-    printplacedLived: function printplacedLived() {
-        var that = this;
-        this.cities.forEach(function (city) {
+    printplacedLived: function () {
+        const that = this;
+        this.cities.forEach(function(city) {
             console.log(that.name + ' has lived in ' + city);
         });
     }
@@ -33,43 +31,35 @@ var userES5 = {
 userES5.printplacedLived();
 
 //es5 + es6 version;
-var user = {
+const user = {
     name: 'Andrew',
     cities: ['Jaipur', 'Kolkata', 'Mumbai'],
-    printplacedLived: function printplacedLived() {
-        var _this = this;
-
-        this.cities.forEach(function (city) {
-            console.log(_this.name + ' has lived in ' + city);
+    printplacedLived: function () {
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city);
         });
     }
 };
 user.printplacedLived();
 
 //es6 version method defination syntax
-var userArrow = {
+const userArrow = {
     name: 'Andrew',
     cities: ['Jaipur', 'Kolkata', 'Mumbai'],
-    printplacedLived: function printplacedLived() {
-        var _this2 = this;
-
-        this.cities.forEach(function (city) {
-            console.log(_this2.name + ' has lived in ' + city);
+    printplacedLived() {
+        this.cities.forEach((city) => {
+            console.log(this.name + ' has lived in ' + city);
         });
     }
 };
 userArrow.printplacedLived();
 
 //es6 challenge problem
-var multipler = {
-    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    multiplyBy: 6,
-    multiply: function multiply() {
-        var _this3 = this;
-
-        return this.numbers.map(function (number) {
-            return _this3.multiplyBy * number;
-        });
+const multipler = {
+    numbers : [1,2,3,4,5,6,7,8,9,10],
+    multiplyBy : 6,
+    multiply(){
+        return this.numbers.map((number) => this.multiplyBy * number);
     }
 };
 
