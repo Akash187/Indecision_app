@@ -1,76 +1,97 @@
 'use strict';
 
-//argument object - no longer bound with arrow function
+console.log('App.js is running!');
 
-//es5 version of function
-var add = function add(a, b) {
-    console.log(arguments);
-    return a + b;
+var app = {
+    title: 'Indecision App Development',
+    subtitle: 'Info about the app',
+    options: ['one', 'two']
 };
 
-//es6 version of function which will give "argument is not defined error" so in some cases when you need to have access to argument stick with es5 version.
-// const addArrow = (a,b) => {
-//     console.log(arguments);
-//     return a + b;
-//};
+// JSX - JavaScript XML
 
-console.log(add(55, 12));
-//console.log(addArrow(45, 5));
+//using and operator and ternary opertator simultaneously.
+var template = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        app.title
+    ),
+    app.subtitle && React.createElement(
+        'p',
+        null,
+        app.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options.length > 0 ? "Here are your options" : "No options"
+    ),
+    React.createElement(
+        'ul',
+        null,
+        React.createElement(
+            'li',
+            null,
+            'Akash'
+        ),
+        React.createElement(
+            'li',
+            null,
+            'Nishant'
+        )
+    )
+);
 
-//this keyword - no longer bound
+//event and attributes a simple counter app.
+var count = 0;
 
-//es5 version
-var userES5 = {
-    name: 'Andrew',
-    cities: ['Jaipur', 'Kolkata', 'Mumbai'],
-    printplacedLived: function printplacedLived() {
-        var that = this;
-        this.cities.forEach(function (city) {
-            console.log(that.name + ' has lived in ' + city);
-        });
-    }
-};
-userES5.printplacedLived();
-
-//es5 + es6 version;
-var user = {
-    name: 'Andrew',
-    cities: ['Jaipur', 'Kolkata', 'Mumbai'],
-    printplacedLived: function printplacedLived() {
-        var _this = this;
-
-        this.cities.forEach(function (city) {
-            console.log(_this.name + ' has lived in ' + city);
-        });
-    }
-};
-user.printplacedLived();
-
-//es6 version method defination syntax
-var userArrow = {
-    name: 'Andrew',
-    cities: ['Jaipur', 'Kolkata', 'Mumbai'],
-    printplacedLived: function printplacedLived() {
-        var _this2 = this;
-
-        this.cities.forEach(function (city) {
-            console.log(_this2.name + ' has lived in ' + city);
-        });
-    }
-};
-userArrow.printplacedLived();
-
-//es6 challenge problem
-var multipler = {
-    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    multiplyBy: 6,
-    multiply: function multiply() {
-        var _this3 = this;
-
-        return this.numbers.map(function (number) {
-            return _this3.multiplyBy * number;
-        });
-    }
+var addOne = function addOne() {
+    count++;
+    renderCounterApp();
 };
 
-console.log(multipler.multiply());
+var minusOne = function minusOne() {
+    count--;
+    renderCounterApp();
+};
+
+var reset = function reset() {
+    count = 0;
+    renderCounterApp();
+};
+
+var appRoot = document.getElementById('app');
+
+var renderCounterApp = function renderCounterApp() {
+    var templateTwo = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Count: ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: addOne },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: minusOne },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: reset },
+            'reset'
+        )
+    );
+    ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
