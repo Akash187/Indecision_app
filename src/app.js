@@ -38,6 +38,17 @@ const renderForm = () =>{
             <p>{app.options.length > 0 ? "Here are your options" : "No options"}</p>
             <p>{app.options.length}</p>
             <button onClick={emptyList}>Remove All</button>
+
+            {/*pracising with array*/}
+            {
+                [99, 97, 96, 'Mike William', null, undefined, true]
+            }
+
+            {/*array of JSX*/}
+            {
+                [<p key="1">a</p>,<p key="2">b</p>,<p key="3">c</p>]
+            }
+
             <ol>
                 <li>Akash</li>
                 <li>Nishant</li>
