@@ -31,6 +31,7 @@ const emptyList = () =>{
 };
 
 const renderForm = () =>{
+    let i = 0;
     const template = (
         <div>
             <h1>{app.title}</h1>
@@ -38,20 +39,13 @@ const renderForm = () =>{
             <p>{app.options.length > 0 ? "Here are your options" : "No options"}</p>
             <p>{app.options.length}</p>
             <button onClick={emptyList}>Remove All</button>
-
-            {/*pracising with array*/}
-            {
-                [99, 97, 96, 'Mike William', null, undefined, true]
-            }
-
-            {/*array of JSX*/}
-            {
-                [<p key="1">a</p>,<p key="2">b</p>,<p key="3">c</p>]
-            }
-
             <ol>
-                <li>Akash</li>
-                <li>Nishant</li>
+                {/*map over app.options getting back an array of list {set key and text}*/}
+                {
+                app.options.map((option) =>{
+                return <li key={i++}>{option}</li>
+            })
+                }
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type = "text" name="option"/>
