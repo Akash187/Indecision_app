@@ -29,6 +29,16 @@ const emptyList = () =>{
     app.options = [];
     renderForm();
 };
+//the initialization app.decision which is going to be shown when What should I do?
+app.decision = "";
+const onMakeDecision = () =>{
+    const random_number = Math.floor(Math.random()*app.options.length);
+    if(random_number) {
+        app.decision = app.options[random_number];
+        renderForm();
+        console.log(app);
+    }
+};
 
 const renderForm = () =>{
     let i = 0;
@@ -37,8 +47,10 @@ const renderForm = () =>{
             <h1>{app.title}</h1>
             {app.subtitle && <p>{app.subtitle}</p>}
             <p>{app.options.length > 0 ? "Here are your options" : "No options"}</p>
-            <p>{app.options.length}</p>
+            <button onClick={onMakeDecision}>What should I do?</button>
             <button onClick={emptyList}>Remove All</button>
+            {/*app.decision need to be initialized if its not in the app object.*/}
+            <p>{app.decision ? "Suggestion : " + app.decision : ""}</p>
             <ol>
                 {/*map over app.options getting back an array of list {set key and text}*/}
                 {
