@@ -21,22 +21,41 @@ class Student extends Person{
         super(name,age);
         this.major = major;
     }
-    hasmajor(){
+    hasMajor(){
         return !!this.major;
     }
     getDescription(){
         let description = super.getDescription();
-        if(this.hasmajor()){
-            description += ` Their major is ${this.major}`;
+        if(this.hasMajor()){
+            description += ` Their major is ${this.major}.`;
         }
         return description;
     }
 }
 
-const me = new Student('Akash Seth', 20, 'Computer Sciece');
-console.log(me.hasmajor());
+//practising sub-classes
+class Traveller extends Person{
+    constructor(name, age, homeLocation){
+        super(name,age);
+        this.homeLocation = homeLocation;
+    }
+    hasHomeLocation(){
+        return !!this.homeLocation;
+    }
+    getDescription(){
+        let description = super.getDescription();
+        if(this.hasHomeLocation()){
+            description += ` He lives in ${this.homeLocation}.`
+        }
+        return description;
+    }
+}
+
+
+const me = new Traveller('Akash Seth', 20, 'New York');
+console.log(me.hasHomeLocation());
 console.log(me.getDescription());
 
-const other = new Student();
-console.log(other.hasmajor());
+const other = new Traveller();
+console.log(other.hasHomeLocation());
 console.log(other.getDescription());
