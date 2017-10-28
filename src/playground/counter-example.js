@@ -27,7 +27,7 @@ const renderCounterApp = () => {
             <button onClick={reset}>reset</button>
         </div>
     );
-    ReactDOM.render(templateTwo,appRoot);
+    Header.render(templateTwo,appRoot);
 };
 
 renderCounterApp();

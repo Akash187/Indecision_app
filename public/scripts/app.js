@@ -1,97 +1,53 @@
 'use strict';
 
-console.log('App.js is running!');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var app = {
-    title: 'Indecision App Development',
-    subtitle: 'Info about the app',
-    options: ['one', 'two']
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// JSX - JavaScript XML
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-//using and operator and ternary opertator simultaneously.
-var template = React.createElement(
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//creating a react component
+var Header = function (_React$Component) {
+    _inherits(Header, _React$Component);
+
+    function Header() {
+        _classCallCheck(this, Header);
+
+        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    }
+
+    _createClass(Header, [{
+        key: 'render',
+
+        //must have method
+        value: function render() {
+            return React.createElement(
+                'div',
+                null,
+                React.createElement(
+                    'p',
+                    null,
+                    'This is from header.'
+                )
+            );
+        }
+    }]);
+
+    return Header;
+}(React.Component);
+
+var jsx = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        app.title
+        'Title'
     ),
-    app.subtitle && React.createElement(
-        'p',
-        null,
-        app.subtitle
-    ),
-    React.createElement(
-        'p',
-        null,
-        app.options.length > 0 ? "Here are your options" : "No options"
-    ),
-    React.createElement(
-        'ul',
-        null,
-        React.createElement(
-            'li',
-            null,
-            'Akash'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'Nishant'
-        )
-    )
+    React.createElement(Header, null),
+    React.createElement(Header, null)
 );
 
-//event and attributes a simple counter app.
-var count = 0;
-
-var addOne = function addOne() {
-    count++;
-    renderCounterApp();
-};
-
-var minusOne = function minusOne() {
-    count--;
-    renderCounterApp();
-};
-
-var reset = function reset() {
-    count = 0;
-    renderCounterApp();
-};
-
-var appRoot = document.getElementById('app');
-
-var renderCounterApp = function renderCounterApp() {
-    var templateTwo = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            'Count: ',
-            count
-        ),
-        React.createElement(
-            'button',
-            { onClick: addOne },
-            '+1'
-        ),
-        React.createElement(
-            'button',
-            { onClick: minusOne },
-            '-1'
-        ),
-        React.createElement(
-            'button',
-            { onClick: reset },
-            'reset'
-        )
-    );
-    ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
+ReactDOM.render(jsx, document.getElementById('app'));

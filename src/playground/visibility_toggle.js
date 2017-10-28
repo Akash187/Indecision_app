@@ -12,7 +12,7 @@ const renderTemplate = () => {
         </div>
     );
     const appRoot = document.getElementById('app');
-    ReactDOM.render(template, appRoot);
+    Header.render(template, appRoot);
 };
 
 renderTemplate();
