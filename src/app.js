@@ -11,12 +11,18 @@ class IndecisionApp extends React.Component {
         };
     }
 
+    //explicitely returning an object
+    // handleDeleteOptions(){
+    //     this.setState(()=>{
+    //         return {
+    //             options:[]
+    //         };
+    //     });
+    // }
+
+    //implicitely returning an object
     handleDeleteOptions(){
-        this.setState(()=>{
-            return {
-                options:[]
-            };
-        });
+        this.setState(()=> ({options: []}));
     }
 
     handlePick(){
@@ -30,11 +36,10 @@ class IndecisionApp extends React.Component {
         }else if(this.state.options.indexOf(option) > -1){
             return 'This option already exists';
         }
-        this.setState((prevState)=>{
-           return{
+        //converted from explicit to implicit return
+        this.setState((prevState)=>({
                options: prevState.options.concat([option])
-           };
-        });
+        }));
     }
     render() {
         const subtitle = 'Put your life in the hand of a Computer.';
@@ -68,18 +73,6 @@ const Header = (props)=>{
 Header.defaultProps = {
   title: 'Indecision'
 };
-
-// class Header extends React.Component{
-//     //must have method
-//     render() {
-//         return (
-//             <div>
-//                 <h1>{this.props.title}</h1>
-//                 <h2>{this.props.subtitle}</h2>
-//             </div>
-//         );
-//     }
-// }
 
 //stateless function
 const Action = (props)=>{
@@ -124,9 +117,10 @@ class AddOptions extends React.Component {
         e.preventDefault();
         const option = e.target.elements.option.value.trim();
         const error = this.props.handleAddOption(option);
-        this.setState(()=>{
-            return {error} //same as error = error
-        });
+
+        //converted from explicit to implicit return
+        this.setState(()=>({error}));
+
         e.target.reset();
     }
     render(){
