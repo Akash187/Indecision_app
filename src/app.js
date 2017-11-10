@@ -2,11 +2,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const template = React.createElement('p',{},'akash123');
-ReactDOM.render(template,document.getElementById('app'));
+const template = <p>This is JSX from webpack! It's working Awesome. Damn Good.</p>;
+ReactDOM.render(template, document.getElementById('app'));
+
+
 
 import validator from 'validator';
-console.log('First : ' + validator.isEmail('akash@gmail.com'));
+console.log('First : ' + validator.isBoolean('false'));
 
 //import only a subset of the library
 import isEmail from 'validator/lib/isEmail';
