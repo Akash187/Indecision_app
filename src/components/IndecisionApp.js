@@ -5,17 +5,9 @@ import Header from './Header';
 import Action from './Action';
 
 export default class IndecisionApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-        this.handlePick = this.handlePick.bind(this);
-        this.handleAddOption = this.handleAddOption.bind(this);
-        this.handleDeleteOption = this.handleDeleteOption.bind(this);
-        this.state = {
-            options: props.options
-        };
-    }
-
+    state = {
+        options: []
+    };
     //lifecycle method
     componentDidMount() {
         try {
@@ -39,24 +31,24 @@ export default class IndecisionApp extends React.Component {
 
 
     //implicitely returning an object
-    handleDeleteOptions() {
+    handleDeleteOptions = () => {
         this.setState(() => ({options: []}));
-    }
+    };
 
     //code to remove Individual option
-    handleDeleteOption(optionToRemove) {
+    handleDeleteOption = (optionToRemove) => {
         this.setState((prevState) => ({
             options: prevState.options.filter((option) =>
                 optionToRemove !== option)
         }));
-    }
+    };
 
-    handlePick() {
+    handlePick = () => {
         const randomNumber = Math.floor(Math.random() * this.state.options.length);
         alert('Option picked : ' + this.state.options[randomNumber]);
-    }
+    };
 
-    handleAddOption(option) {
+    handleAddOption = (option) => {
         if (!option) {
             return 'Enter valid value to add item';
         } else if (this.state.options.indexOf(option) > -1) {
@@ -66,7 +58,7 @@ export default class IndecisionApp extends React.Component {
         this.setState((prevState) => ({
             options: prevState.options.concat([option])
         }));
-    }
+    };
 
     render() {
         const subtitle = 'Put your life in the hand of a Computer.';
@@ -81,8 +73,3 @@ export default class IndecisionApp extends React.Component {
         );
     }
 }
-
-//default props
-IndecisionApp.defaultProps = {
-    options: []
-};
